@@ -3,12 +3,12 @@ const router = express.Router()
 const {basedir} = global
 const {auth} = require(`${basedir}/middlewares`)
 const {register, login, logout, currentUser} = require(`${basedir}/controllers/auth`)
-const {validateUser} = require('./validation')
+const {validateRegister, validateLogin} = require('./validation')
 const ctrlWrapper = require(`${basedir}/helpers/ctrlWrapper`)
 
-router.post('/register', validateUser, ctrlWrapper(register))
+router.post('/register', validateRegister, ctrlWrapper(register))
 
-router.post('/login', validateUser, ctrlWrapper(login))
+router.post('/login', validateLogin, ctrlWrapper(login))
 
 router.get('/logout', auth, ctrlWrapper(logout))
 
