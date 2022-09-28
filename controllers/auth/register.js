@@ -17,7 +17,13 @@ const register = async (req, res) => {
     }
     const token = jwt.sign(payload, SECRET_KEY, {expiresIn: "1h"})
     const user = await User.create({...req.body, password: hashPassword, token})
-    res.status(201).json({ status: 'success', code: 201, data: {token, name: user.name, email: user.email}})
+    res.json({
+        token,
+        user: {
+            name: user.name,
+            email: user.email
+        }
+    })
 }
 
 module.exports = register
