@@ -6,7 +6,6 @@ require('dotenv').config()
 global.basedir = __dirname
 
 const userRouter = require('./routes/api/auth')
-const favouritesRouter = require('./routes/api/favourites')
 
 const app = express()
 
@@ -18,7 +17,6 @@ app.use(express.json())
 app.use(express.static("public"))
 
 app.use('/api/auth', userRouter)
-app.use('/api/favourites', favouritesRouter)
 
 app.use((req, res) => {
   res.status(404).json({ status: 'error', code: 404, message: 'Not found' })
