@@ -6,12 +6,12 @@ const {getFavourites, getFavouriteDragon, addFavouriteDragon, removefavouriteDra
 const { validateFavouriteDragonId, validateFavouriteDragon} = require('./validation')
 const ctrlWrapper = require(`${basedir}/helpers/ctrlWrapper`)
 
-router.get('/', auth, ctrlWrapper(getFavourites))
+router.get('/favourites', auth, ctrlWrapper(getFavourites))
 
-router.get('/:favouriteId', auth, validateFavouriteDragonId, ctrlWrapper(getFavouriteDragon))
+router.get('/favourite/:favouriteId', auth, validateFavouriteDragonId, ctrlWrapper(getFavouriteDragon))
 
-router.post('/', auth, validateFavouriteDragon, ctrlWrapper(addFavouriteDragon))
+router.post('/favourite', auth, validateFavouriteDragon, ctrlWrapper(addFavouriteDragon))
 
-router.delete('/:favouriteId', auth, validateFavouriteDragonId, ctrlWrapper(removefavouriteDragon))
+router.delete('/favourite/:favouriteId', auth, validateFavouriteDragonId, ctrlWrapper(removefavouriteDragon))
 
 module.exports = router
