@@ -1,11 +1,11 @@
 const getFavourites = require('./getFavourites')
 const getFavouriteDragon = require('./getFavouriteDragon')
 const addFavouriteDragon = require('./addFavouriteDragon')
-const removefavouriteDragon = require('./removefavouriteDragon')
+const removeFavouriteDragon = require('./removeFavouriteDragon')
 
 module.exports = {
     getFavourites,
     getFavouriteDragon,
     addFavouriteDragon,
-    removefavouriteDragon
+    removeFavouriteDragon
 }
