@@ -1,16 +1,5 @@
 const Joi = require('joi')
 
-const schemaFavouriteDragon = Joi.object({
-    name: Joi.string().required(),
-    description: Joi.string().required(),
-    wiki: Joi.string().required(),
-    parameters: Joi.object().required()
-})
-
-const schemaFavouriteDragonId = Joi.object({
-    favouriteDragonId: Joi.string().required()
-})
-
 const emailRegexp = /[a-z0-9]+@([a-z]+\.)+[a-z]{2,3}/
 
 const registerSchema = Joi.object({
@@ -35,18 +24,6 @@ const validate = async (schema, obj, res, next) => {
         res.status(400).json({status: 'error', code: 400, message: err.message })
     }
 }
-
-module.exports.validateFavouriteDragon = async (req, res, next) => {
-    return await validate(schemaFavouriteDragon, req.body, res, next)
-}
-
-module.exports.validateFavouriteDragonId = async (req, res, next) => {
-    return await validate(schemaFavouriteDragonId, req.params, res, next)
-}
-
-// module.exports.validateFavorite = async (req, res, next) => {
-//     return await validate(schemaFavorite, req.body, res, next)
-// }
 
 module.exports.validateRegister = async (req, res, next) => {
     return await validate(registerSchema, req.body, res, next)
