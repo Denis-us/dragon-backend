@@ -1,5 +1,5 @@
 const {basedir} = global
-const Favourites = require(`${basedir}/models/contacts`)
+const Favourites = require(`${basedir}/models/favourites`)
 
 const removeFavouriteDragon = async (req, res) => {
       const favourite = await Favourites.findByIdAndRemove(req.params.favouriteId)

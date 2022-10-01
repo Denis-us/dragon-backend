@@ -3,7 +3,7 @@ const Joi = require('joi')
 const schemaFavouriteDragon = Joi.object({
     name: Joi.string().required(),
     description: Joi.string().required(),
-    wiki: Joi.link().required(),
+    wiki: Joi.string().required(),
     parameters: Joi.object().required()
 })
 

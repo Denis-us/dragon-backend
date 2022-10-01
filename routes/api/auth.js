@@ -14,6 +14,4 @@ router.get('/logout', auth, ctrlWrapper(logout))
 
 router.get('/current', auth, ctrlWrapper(currentUser))
 
-// router.patch('/avatars', auth, upload.single('avatar'), ctrlWrapper(setAvatar))
-
 module.exports = router
