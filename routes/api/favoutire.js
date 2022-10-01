@@ -10,7 +10,7 @@ router.get('/favourites', auth, ctrlWrapper(getFavourites))
 
 router.get('/favourites/:favouriteId', auth, validateFavouriteDragonId, ctrlWrapper(getFavouriteDragon))
 
-router.post('/favourites', auth, validateFavouriteDragon, ctrlWrapper(addFavouriteDragon))
+router.post('/favourites', auth, ctrlWrapper(addFavouriteDragon))
 
 router.delete('/favourites/:favouriteId', auth, validateFavouriteDragonId, ctrlWrapper(removefavouriteDragon))
 
