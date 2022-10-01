@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const {SECRET_KEY} = process.env
 const {basedir} = global
-const User = require(`${basedir}/models/user`)
+const Favourites = require(`${basedir}/models/favourites`)
 
 const auth = async (req, res, next) => {
     const {authorization = ""} = req.headers
@@ -11,7 +11,7 @@ const auth = async (req, res, next) => {
     }
     try {
         const {id} = jwt.verify(token, SECRET_KEY)
-        const user = await User.findById(id)
+        const user = await Favourites.findById(id)
     if(!user || !user.token) {
         return res.status(401).json({ status: 'error', code: 401, message: "Not authorized"})
     }
