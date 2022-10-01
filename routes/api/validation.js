@@ -1,19 +1,15 @@
 const Joi = require('joi')
 
-// const schemaContact = Joi.object({
-//     name: Joi.string().min(1).max(100).required(),
-//     email: Joi.string().min(1).max(100).required(),
-//     phone: Joi.string().min(10).max(20).required(),
-//     favorite: Joi.boolean()
-// })
+const schemaFavouriteDragon = Joi.object({
+    name: Joi.string().required(),
+    description: Joi.string().required(),
+    wiki: Joi.link().required(),
+    parameters: Joi.object().required()
+})
 
-// const schemaId = Joi.object({
-//     contactId: Joi.string().required()
-// })
-
-// const schemaFavorite = Joi.object({
-//     favorite: Joi.boolean().required()
-// })
+const schemaFavouriteDragonId = Joi.object({
+    favouriteDragonId: Joi.string().required()
+})
 
 const emailRegexp = /[a-z0-9]+@([a-z]+\.)+[a-z]{2,3}/
 
@@ -40,13 +36,13 @@ const validate = async (schema, obj, res, next) => {
     }
 }
 
-// module.exports.validateContact = async (req, res, next) => {
-//     return await validate(schemaContact, req.body, res, next)
-// }
+module.exports.validateFavouriteDragon = async (req, res, next) => {
+    return await validate(schemaFavouriteDragon, req.body, res, next)
+}
 
-// module.exports.validateId = async (req, res, next) => {
-//     return await validate(schemaId, req.params, res, next)
-// }
+module.exports.validateFavouriteDragonId = async (req, res, next) => {
+    return await validate(schemaFavouriteDragonId, req.params, res, next)
+}
 
 // module.exports.validateFavorite = async (req, res, next) => {
 //     return await validate(schemaFavorite, req.body, res, next)
